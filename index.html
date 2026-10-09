@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>«Захочу — убью»: репортаж</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Медиа-практикум АМУ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,700;1,400&display=swap">
 <style>
@@ -17,18 +17,11 @@
 :root[data-theme="dark"]{
   --bg:#141414; --ink:#e8e8e8; --muted:#9a9a9a; --line:#2c2c2c; --brand:#e0383e; --soft:#1e1e1e; color-scheme:dark}
 *{box-sizing:border-box}
-[hidden]{display:none!important}
-img{max-width:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;margin:0}
 a{color:inherit}
 .wrap{max-width:760px;margin:0 auto;padding-inline:16px}
-.mast{border-bottom:3px solid var(--brand)}
-.mast .wrap{max-width:1000px;display:flex;align-items:baseline;justify-content:space-between;gap:12px 24px;padding-block:16px 12px;flex-wrap:wrap}
-.logo{font-family:var(--head);font-weight:700;font-size:28px;text-decoration:none;letter-spacing:-.01em}
-.logo span{color:var(--brand)}
 article{padding-block:56px 64px}
 .crumbs{font-size:13px;color:var(--brand);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
-.crumbs a{text-decoration:none}
 h1{font-family:var(--head);font-weight:700;font-size:clamp(28px,4.6vw,40px);line-height:1.15;margin:10px 0 0;text-wrap:balance}
 .meta{font-size:14px;color:var(--muted);margin-top:12px}
 .lede{font-weight:700;font-size:19px;line-height:1.5;margin:20px 0 0}
@@ -41,16 +34,45 @@ figure img{width:100%;display:block;cursor:zoom-in;background:var(--soft)}
 figcaption{font-size:14px;color:var(--muted);line-height:1.4}
 blockquote{margin:6px 0;padding:2px 0 2px 18px;border-left:3px solid var(--brand);font-family:var(--head);font-style:italic;font-size:20px;line-height:1.45}
 .note{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:8px}
-footer{border-top:1px solid var(--line)}
-footer .wrap{max-width:1000px;padding-block:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 .lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:grid;place-items:center;padding:16px;z-index:10;cursor:zoom-out}
 .lb img{max-height:90vh;max-width:100%}
 @media (max-width:600px){body{font-size:17px}.pair{grid-template-columns:1fr}}
+
+[hidden]{display:none!important}
+img{max-width:100%}
+.tabs{border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+.tabs .in{max-width:1040px;margin:0 auto;padding-inline:16px;display:flex;gap:26px;overflow-x:auto;scrollbar-width:none}
+.tabs a{flex:none;text-decoration:none;color:var(--muted);font-size:15px;padding-block:14px 12px;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs a:hover,.tabs a:focus-visible{color:var(--ink);outline:none}
+.tabs a[aria-current]{color:var(--ink);border-bottom-color:var(--brand);font-weight:700}
+.wide{max-width:1040px}
+.disc{font-size:14px;color:var(--muted);margin-top:10px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px;align-items:start}
+.col{min-width:0;display:flex;flex-direction:column;gap:12px}
+.col + .col{border-left:1px solid var(--line);padding-left:28px}
+.lbl{font-size:13px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--brand)}
+.col.ai .lbl{color:var(--muted)}
+.col h2{font-family:var(--head);font-size:22px;line-height:1.25;margin:0;text-wrap:balance}
+.col h2.nt{font-style:italic;color:var(--muted);font-weight:400}
+.col p a{color:var(--brand);text-underline-offset:2px}
+.col p{margin:0;font-size:16.5px;line-height:1.6}
+.stat{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.an{margin-top:48px;padding-top:28px;border-top:3px solid var(--ink);max-width:760px}
+.an h2{font-family:var(--head);font-size:26px;margin:0 0 6px}
+.an dl{margin:0;display:grid;grid-template-columns:150px 1fr;gap:16px 24px}
+.an dt{font-weight:700;padding-top:1px}
+.an dd{margin:0;min-width:0}
+@media (max-width:760px){
+  .cols{grid-template-columns:1fr;gap:36px}
+  .col + .col{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:28px}
+  .an dl{grid-template-columns:1fr;gap:4px}
+  .an dd{margin-bottom:14px}
+}
 </style>
 </head>
 <body>
-<main class="wrap" id="top">
-<article>
+<nav class="tabs" aria-label="Материалы"><div class="in"><a href="#reportazh" data-t="reportazh">Репортаж</a><a href="#yust" data-t="yust">Ярослав Юст</a><a href="#serik" data-t="serik">Дияр Серік</a></div></nav>
+<main><section id="t-reportazh" class="wrap"><article>
   <div class="crumbs">Мультимедийный репортаж</div>
   <h1>«Захочу — убью»: в Алматы прохожие спасли собаку</h1>
   <div class="meta">02.10.2026 · Алматы</div>
@@ -60,7 +82,7 @@ footer .wrap{max-width:1000px;padding-block:20px;display:flex;justify-content:sp
     <p>Алматинские паблики и социальные сети накрыла волна возмущения и гнева из-за жестокого обращения женщины с животным. Изначально в сети появились кадры с испуганным, мокрым и обессиленным щенком в автобусе. По словам очевидцев, собака в руках хозяйки была полностью беззащитна.</p>
 
     <figure>
-      <img src="images/1.jpg" alt="Пост в соцсети с двумя фото: женщина в автобусе и мокрый щенок на поводке" loading="lazy">
+      <img src="{{img1}}" alt="Пост в соцсети с двумя фото: женщина в автобусе и мокрый щенок на поводке" loading="lazy">
       <figcaption>Фото из автобуса, опубликованное в соцсетях</figcaption>
     </figure>
 
@@ -68,8 +90,8 @@ footer .wrap{max-width:1000px;padding-block:20px;display:flex;justify-content:sp
 
     <figure>
       <div class="pair">
-        <img src="images/2.jpg" alt="Женщина несёт щенка по улице" loading="lazy">
-        <img src="images/3.jpg" alt="Женщина бросается на прохожих, парень уносит щенка" loading="lazy">
+        <img src="{{img2}}" alt="Женщина несёт щенка по улице" loading="lazy">
+        <img src="{{img3}}" alt="Женщина бросается на прохожих, парень уносит щенка" loading="lazy">
       </div>
       <figcaption>Кадры из видео очевидцев. Лица размыты редакцией</figcaption>
     </figure>
@@ -80,23 +102,45 @@ footer .wrap{max-width:1000px;padding-block:20px;display:flex;justify-content:sp
 
     <figure>
       <div class="pair">
-        <img src="images/4.jpg" alt="Щенок на осмотре у ветеринара" loading="lazy">
-        <img src="images/5.jpg" alt="Новый хозяин держит щенка на руках" loading="lazy">
+        <img src="{{img4}}" alt="Щенок на осмотре у ветеринара" loading="lazy">
+        <img src="{{img5}}" alt="Новый хозяин держит щенка на руках" loading="lazy">
       </div>
       <figcaption>Щенок у ветеринара и с новым хозяином. Фото из соцсетей</figcaption>
     </figure>
 
     <p class="byline">Авторы: Никита Матвеев, Ярослав Юст, Вадим Травин, Матвей Токарев, Дияр Серік</p>
   </div>
-</article>
-</main>
-
+</article></section><section id="t-yust" class="wrap wide" hidden><article>
+  <div class="crumbs">Человек против ИИ</div>
+  <h1>Ярослав Юст</h1>
+  <div class="meta">Тема: Утечка данных клиентов Kaspi</div>
+  <p class="disc">Учебное задание. Ситуация в текстах вымышлена.</p>
+  <div class="cols"><div class="col own"><div class="lbl">Текст ученика</div><h2>Утечка базы данных клиентов Каспи банка: Находится ли личная информация людей в безопасности?</h2><div class="stat">123 слов · 3 абз.</div><p>9 октября, предположительно около 7 утра, произошла утечка базы данных с личной информацией клиентов Каспи банка. Информация об инциденте быстро начала распространяться в социальных сетях, из-за чего среди пользователей появилась паника. Люди начали переживать, что их личные данные могут попасть в чужие руки и использоваться мошенниками.</p><p>У пользователей возникло множество вопросов: как информация могла оказаться в открытом доступе, какие именно данные могли быть затронуты и чем это может обернуться для них.</p><p>На данный момент достоверность информации об утечке остаётся под вопросом. Неизвестно, действительно ли произошёл взлом базы данных или распространяемые в интернете сообщения являются фейком. Сам банк заявляет, что данные клиентов находятся в безопасности, а расследование ситуации уже началось. Представители банка также призывают пользователей не поддаваться панике и не распространять непроверенную информацию.</p></div><div class="col ai"><div class="lbl">Текст ИИ</div><h2>Утечка данных клиентов Kaspi.kz: что известно о ситуации и чем она грозит пользователям</h2><div class="stat">245 слов · 7 абз.</div><p>В интернете появилась база данных, предположительно содержащая персональную информацию клиентов Kaspi.kz. Информация об утечке быстро распространилась в социальных сетях и вызвала беспокойство среди пользователей, которые опасаются, что их данные могут попасть к мошенникам.</p><p>По сценарию происшествия, опубликованные материалы содержат сведения, которые могут позволить идентифицировать отдельных клиентов. При этом точный состав базы, количество затронутых пользователей и подлинность всех опубликованных данных пока не установлены.</p><p>Ситуация вызвала вопросы о том, каким образом информация могла оказаться в открытом доступе и каковы возможные последствия для клиентов. Если данные действительно принадлежат пользователям сервиса, злоумышленники могут попытаться использовать их для фишинговых атак, мошеннических звонков и рассылки сообщений от имени банка.</p><p>Особую опасность представляют ситуации, когда мошенники используют реальные сведения о человеке, чтобы вызвать доверие. Например, они могут представиться сотрудниками банка и попытаться получить коды подтверждения, пароли или другую конфиденциальную информацию.</p><p>Для пользователей главной проблемой становится неопределённость: какие именно сведения могли попасть к посторонним и существует ли риск дальнейшего использования этой информации. На фоне распространения сообщений об утечке в социальных сетях также могут появляться неподтверждённые заявления, поэтому важно отличать установленные факты от предположений.</p><p>На момент подготовки этой учебной публикации официальная позиция компании в рамках сценария не представлена. Для полноценного журналистского материала необходимо получить комментарий Kaspi.kz, выяснить, начато ли расследование, и установить, были ли уведомлены пользователи и соответствующие органы.</p><p>История показывает, насколько серьёзными могут быть последствия предполагаемой утечки персональных данных для клиентов крупного цифрового сервиса. Окончательные выводы о масштабах происшествия и его причинах можно будет сделать только после проверки подлинности опубликованной информации.</p></div></div>
+  <div class="an"><h2>Разбор</h2><dl><dt>Структура</dt><dd>В моём тексте сразу указаны дата и примерное время происшествия, затем описывается реакция людей и позиция банка. ИИ начинает с общей информации об утечке, после чего объясняет возможные риски и подводит итог. Мой текст короче и быстрее доносит суть, а в тексте ИИ больше воды.</dd><dt>Факты</dt><dd>Так как ситуация выдуманная, оба текста строятся на заданном сценарии. В моём тексте есть заявление банка, а в ИИ-тексте его нет. При этом ИИ подробнее раскрывает возможные риски для пользователей.</dd><dt>Стиль</dt><dd>Мой текст проще для восприятия, а текст ИИ содержит длинные предложения со сложными формулировками.</dd><dt>Ошибки</dt><dd>В моём тексте сначала утечка описывается как факт, а потом ставится под сомнение. В ИИ-тексте есть повторы мыслей о неизвестных масштабах утечки и её последствиях.</dd></dl></div>
+</article></section><section id="t-serik" class="wrap wide" hidden><article>
+  <div class="crumbs">Человек против ИИ</div>
+  <h1>Дияр Серік</h1>
+  <div class="meta">Тема: Фильм «Жеті қарақшы»</div>
+  <p class="disc">Учебное задание. Фильм и факты о нём реальные.</p>
+  <div class="cols"><div class="col own"><div class="lbl">Текст ученика</div><h2>“7 қарақшы”: окупится ли самый дорогой фильм Казахстана?</h2><div class="stat">204 слов · 5 абз.</div><p>24 сентября в казахстанский прокат вышел фильм Қуаныша Бейсека “7 қарақшы” в жанре истерн. Фильм был снят за рекордные для отечественного кино 720 млн тенге. О чем же повествует самый дорогой фильм страны, и сможет ли он собрать кассу?</p><p>“7 қарақшы” — это не типичное историческое кино. События фильма происходят в “параллельной”, по словам режиссера, вселенной, в которой руководство страны прибегает к помощи разбойников для предотвращения испытаний ядерного оружия. По классике жанра зритель будет наблюдать множество динамичных сюжетных арок, которые повлияют на ход всей истории.</p><p>Выход подобного фильма в свет является большой редкостью не только для казахстанского кинематографа, но и для большого кино в целом. Режиссер фильма Қуаныш Бейсек ранее уже успешно экспериментировал с жанровым кино в Казахстане, собрав рекордные кассовые сборы за картину “Дәстүр”.</p><p>Однако зрители и критики ставят под сомнение дальнейший финансовый успех фильма. Независимый автор и кинокритик Рамазан-Малик Елеусиз <a href="https://www.98mag.kz/kultura/7-qaraqshy-kuda-privodyat-mechty-o-bolshom-kino/" target="_blank" rel="noopener">в рецензии для 98mag</a> назвал фильм “мальчишеской попыткой переснять свои любимые фильмы”, ссылаясь на сходство с фильмами “Бесславные ублюдки”, “Отряд самоубийц”, “Олдбой” и еще десятками других успешных блокбастеров.</p><p>Станет ли кинокартина очередным успешным кейсом режиссера-энтузиаста или останется в истории как кассовый провал подобно фильму “Томирис”, определит лишь зритель.</p></div><div class="col ai"><div class="lbl">Текст ИИ</div><h2>«Жеті қарақшы»: истерн, который проверит частные деньги в казахстанском кино</h2><div class="stat">101 слов · 3 абз.</div><p>24 сентября в прокат вышел исторический экшен Куаныша Бейсека «Жеті қарақшы» («Семеро разбойников»). Это самый дорогой фильм в истории отечественного кино, и снят он полностью на частные инвестиции.</p><p>Сюжет. Конец 1970-х. Семерых казахских разбойников, у каждого из которых своя криминальная «специализация», собирают для секретной операции против советского режима: им нужно сорвать ядерное испытание на Семипалатинском полигоне. Жанр фильма — истерн, редкий для Центральной Азии.</p><p>Команда. Режиссёр Куаныш Бейсек известен по фильму «Дәстүр». В главных ролях Еркебулан Дайыров, немецкий актёр Винценц Кифер («Джейсон Борн»), Азат Жумадил, Ашим Ахметов, Шугыла Ешенова и другие. Участие европейской звезды показывает, что создатели рассчитывают на международный прокат.</p></div></div>
+  <div class="an"><h2>Разбор</h2><dl><dt>Структура</dt><dd>Я начинаю с даты выхода, бюджета и вопроса, который проходит через весь текст: о чём фильм и соберёт ли он кассу. Дальше идут сюжет, прошлый успех режиссёра, мнение критика, а в конце я возвращаюсь к вопросу из лида. ИИ построил текст как справку: лид, потом блоки с пометками «Сюжет» и «Команда». Вывода у него нет, текст обрывается на списке актёров.</dd><dt>Факты</dt><dd>У меня есть то, чего нет у ИИ: точный бюджет (720 млн тенге), мнение критика со ссылкой на рецензию и сравнение с «Томирис». ИИ называет фильм самым дорогим, но не приводит цифру. Зато у ИИ больше конкретики о самом фильме: конец 1970-х, Семипалатинский полигон, частные инвестиции, имена актёров. В моём тексте этого нет. При этом ИИ пересказывает анонс, вышедший до премьеры, поэтому пишет так, будто фильм ещё не в прокате: «создатели рассчитывают на международный прокат».</dd><dt>Ошибки</dt><dd>В моём черновике были опечатки и повтор слов, а цитату критика я сначала привёл неточно. Слова о «параллельной вселенной» я приписал режиссёру, не указав, где он это сказал, а фраза о том, что такой фильм — редкость «для большого кино в целом», звучит слишком сильно. У ИИ ошибки другого рода: «Участие европейской звезды» — преувеличение, фраза «известен по фильму «Дәстүр»» ничего не объясняет читателю, а главное утверждение о самом дорогом фильме ничем не подкреплено.</dd></dl></div>
+</article></section></main>
 <div class="lb" id="lb" hidden><img id="lbimg" alt=""></div>
 <script>
 const lb=document.getElementById('lb'),li=document.getElementById('lbimg');
 document.querySelectorAll('figure img').forEach(i=>i.addEventListener('click',()=>{li.src=i.src;li.alt=i.alt;lb.hidden=false}));
 lb.addEventListener('click',()=>lb.hidden=true);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.hidden=true});
+
+const tabs=[...document.querySelectorAll('.tabs a')];
+function show(id){
+  if(!document.getElementById('t-'+id)) id='reportazh';
+  document.querySelectorAll('main > section').forEach(s=>s.hidden=s.id!=='t-'+id);
+  tabs.forEach(a=>a.toggleAttribute('aria-current',a.dataset.t===id));
+}
+tabs.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.t);try{history.replaceState(null,'','#'+a.dataset.t)}catch(_){location.hash=a.dataset.t}window.scrollTo(0,0)}));
+window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
+show(location.hash.slice(1));
 </script>
 </body>
 </html>
